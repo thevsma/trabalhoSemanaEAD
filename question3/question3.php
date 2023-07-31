@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Trabalho Semana EAD</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>Questão 3</title>
 </head>
 
 <body>
@@ -15,17 +15,11 @@
     </header>
 
     <main>
-        <h1>Lista de Questões</h1>
-
-        <ul>
-            <li><a href="question1">Questão 1</a></li>
-            <li><a href="question2">Questão 2</a></li>
-            <li><a href="question3/question3.php">Questão 3</a></li>
-            <li><a href="question4">Questão 4</a></li>
-        </ul>
+        <p>Questão 3</p>
     </main>
 
     <footer>
+        <p><a href="index.php">Página Inicial</a></p>
         <p>&copy;2023 - Matheus Vieira e Cézar Passos</p>
     </footer>
 </body>
