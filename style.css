@@ -3,3 +3,7 @@
 p, h1, h2, li{
     font-family: 'Poppins', sans-serif;
 }
+
+.correct{
+    color: green;
+}
