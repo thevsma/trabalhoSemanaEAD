@@ -19,7 +19,7 @@
 
         <ul>
             <li><a href="question1">Questão 1</a></li>
-            <li><a href="question2">Questão 2</a></li>
+            <li><a href="question2/question2.php">Questão 2</a></li>
             <li><a href="question3/question3.php">Questão 3</a></li>
             <li><a href="question4">Questão 4</a></li>
         </ul>

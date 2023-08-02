@@ -7,3 +7,37 @@ p, h1, h2, li{
 .correct{
     color: green;
 }
+
+/* Layout */
+
+h2 {
+    padding: 15px;
+    background-color: rgb(206, 206, 206);
+}
+
+
+footer {
+    padding: 15px;
+    background-color: rgb(206, 206, 206);
+    font-size: large;
+}
+
+
+h1 {
+    padding: 15px;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Tabela da questão 2-IMC */
+
+table {
+    border-collapse: collapse;
+}
+td {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
