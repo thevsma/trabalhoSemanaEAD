@@ -20,30 +20,81 @@
         <form method="post">
             <fieldset>
                 <legend>Parâmetros</legend>
-
-                <label for="init">Aporte inicial:</label>
-                <input type="number" name="init" id="init" min="1" max="999999" step="any" value="500">
-                <label for="init">[até R$999.999,99]</label>
+                <label>Aporte inicial (R$):</label>
+                <input type="number" step="0.01" name="aporte_inicial" value="<?php echo isset($_POST['aporte_inicial']) ? $_POST['aporte_inicial'] : ''; ?>" required>
+                <label> [até 999.999,99]</label>
                 <br>
 
-                <label for="time">Período:</label>
-                <input type="number" name="time" id="time" min="1" max="480" step="1" value="12">
-                <label for="time">[1 a 480]</label>
+                <label>Período (meses): </label>
+                <input type="number" name="periodo" min="1" max="480" value="<?php echo isset($_POST['periodo']) ? $_POST['periodo'] : ''; ?>" required>
+                <label> [1 a 480]</label>
                 <br>
 
-                <label for="ret">Rendimento mensal (%):</label>
-                <input type="number" name="ret" id="ret" max="20" step="0.01" value="0.68">
-                <label for="ret">[até 20%]</label>
+                <label>Rendimento mensal (%): </label>
+                <input type="number" step="0.01" name="rendimento_mensal" value="<?php echo isset($_POST['rendimento_mensal']) ? $_POST['rendimento_mensal'] : ''; ?>" required>
+                <label> [até 20%]</label>
                 <br>
 
-                <label for="mont">Aporte mensal:</label>
-                <input type="number" name="mont" id="mont" min="1" max="999999" step="any" value="350">
-                <label for="mont">[até R$999.999,99]</label>
+                <label>Aporte mensal:</label>
+                <input type="number" step="0.01" name="aporte_mensal" value="<?php echo isset($_POST['aporte_mensal']) ? $_POST['aporte_mensal'] : ''; ?>" required>
+                <label> [até 999.999,99]</label>
                 <br>
 
-                <button type="submit">Processar</button>
+                <input type="submit" name="submit" value="Processar">
             </fieldset>
         </form>
+
+        <?php
+            function calcularRendimento($valor_inicial, $aporte_mensal, $taxa_rendimento){
+                $rendimento = ($valor_inicial + $aporte_mensal) * ($taxa_rendimento / 100);
+                $total = $valor_inicial + $aporte_mensal + $rendimento;
+                return array($rendimento, $total);
+            }
+
+
+
+
+            if (isset($_POST['submit'])) {
+                $aporte_inicial = floatval($_POST['aporte_inicial']);
+                $periodo = intval($_POST['periodo']);
+                $rendimento_mensal = floatval($_POST['rendimento_mensal']);
+                $aporte_mensal = floatval($_POST['aporte_mensal']);
+
+                $valor_inicial = $aporte_inicial;
+
+
+
+
+                echo '<h2>Resultados:</h2>';
+                echo '<table border="1">';
+                echo '<tr><th>Mês</th><th>Valor Inicial (R$)</th><th>Aporte (R$)</th><th>Rendimento (R$)</th><th>Total (R$)</th></tr>';
+
+                for ($mes = 1; $mes <= $periodo; $mes++) {
+                    if ($mes == 1) {
+                        list($rendimento, $total) = calcularRendimento($valor_inicial, 0, $rendimento_mensal);
+                        echo '<tr>';
+                        echo '<td>' . $mes . '</td>';
+                        echo '<td>' . number_format($valor_inicial, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format(0, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($rendimento, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($total, 2, ',', '.') . '</td>';
+                        echo '</tr>';
+                        $valor_inicial = $total;
+                    }else {
+                        list($rendimento, $total) = calcularRendimento($valor_inicial, $aporte_mensal, $rendimento_mensal);
+                        echo '<tr>';
+                        echo '<td>' . $mes . '</td>';
+                        echo '<td>' . number_format($valor_inicial, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($aporte_mensal, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($rendimento, 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($total, 2, ',', '.') . '</td>';
+                        echo '</tr>';
+                        $valor_inicial = $total;
+                    }
+                }
+            echo '</table>';
+        }
+        ?>
     </main>
 
     <footer>
