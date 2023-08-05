@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-p, h1, h2, li{
+p, h1, h2, li, form{
     font-family: 'Poppins', sans-serif;
 }
 
