@@ -18,10 +18,10 @@
         <h1>Lista de Questões</h1>
 
         <ul>
-            <li><a href="question1/question1.php">Questão 1</a></li>
-            <li><a href="question2/question2.php">Questão 2</a></li>
-            <li><a href="question3/question3.php">Questão 3</a></li>
-            <li><a href="question4">Questão 4</a></li>
+            <li><a href="question1/question1.php" id="index">Questão 1</a></li>
+            <li><a href="question2/question2.php" id="index">Questão 2</a></li>
+            <li><a href="question3/question3.php" id="index">Questão 3</a></li>
+            <li><a href="question4/question4.php" id="index">Questão 4</a></li>
         </ul>
     </main>
 

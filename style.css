@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-p, h1, h2, li, form{
+p, h1, h2, li, form, a{
     font-family: 'Poppins', sans-serif;
 }
 
 .correct{
     color: green;
+}
+
+a{
+    color: black;
 }
 
 /* Layout */
@@ -40,4 +44,19 @@ td {
     height: 30px;
     text-align: center;
     border: 1px solid #ccc;
+}
+
+a#index:link, a#index:visited {
+    background-color: black;
+    color: white;
+    padding: .5em 1em;
+    /* text-align: center; */
+    text-decoration: none;
+    display: inline-flex;
+    border-radius: .3em;
+    margin-bottom: .2em;
+}
+
+a#index:hover, a#index:active {
+    background-color: #321C3B;
 }

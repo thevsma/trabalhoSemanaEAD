@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Questão 1</title>
 </head>
 
@@ -99,7 +99,7 @@
     </main>
 
     <footer>
-        <p><a href="index.php">Página Inicial</a></p>
+        <p><a href="../index.php" id="index">Página Inicial</a></p>
         <p>&copy;2023 - Matheus Vieira e Cézar Passos</p>
     </footer>
 </body>
